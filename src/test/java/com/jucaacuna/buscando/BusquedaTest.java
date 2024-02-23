@@ -12,6 +12,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+
+
+/*
+ * Caso de prueba todo junto, "vanilla test"
+ */
 public class BusquedaTest {
 
   WebDriver driver;
@@ -33,31 +38,33 @@ public class BusquedaTest {
     int incidencias = 0;
     String url = "https://www.utu.edu.uy/convocatorias-elecci%C3%B3n-de-cargos";
     driver.get(url);
-    List <WebElement> cards = driver.findElements(By.cssSelector("div.col-12.pt-3"));
+    List<WebElement> cards = driver.findElements(By.cssSelector("div.col-12.pt-3"));
 
-    for (WebElement c: cards) {
-      if (c.getText().contains("elección") &&  c.getText().contains("/2024")) {
+    for (WebElement c : cards) {
+      if (c.getText().contains("elección") && c.getText().contains("/2024")) {
         incidencias++;
         System.out.println(c.getText());
       }
     }
 
-    assertTrue(incidencias>0);
+    assertTrue(incidencias > 0);
   }
+
   @Test
   public void buscando2utu() {
     int incidencias = 0;
     String url = "http://www.utu.edu.uy/funcionarios";
     driver.get(url);
-    List <WebElement> cards = driver.findElements(By.cssSelector("div.card.card-noticias.flex-md-row.mb-md-4.mr-3.mr-md-0"));
+    List<WebElement> cards = driver
+        .findElements(By.cssSelector("div.card.card-noticias.flex-md-row.mb-md-4.mr-3.mr-md-0"));
 
-    for (WebElement c: cards) {
+    for (WebElement c : cards) {
       if (c.getText().contains("Elección")) {
         incidencias++;
         System.out.println(c.getText());
       }
     }
 
-    assertTrue(incidencias>0);
+    assertTrue(incidencias > 0);
   }
 }
